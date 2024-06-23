@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New York Dream</title>
+    <style>
+    @font-face {
+            font-family: 'Gwendolyn';
+            src: url('fonts/Gwendolyn-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #000;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em 2em;
+        }
+        .logo {
+            font-family: 'Gwendolyn', cursive;
+            font-size: 1.5em;
+            text-align: center;
+        }
+        .yazi{
+            font-family: 'Gwendolyn', cursive;
+            font-size: 2.5em;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+        .yazi2{
+            font-family: 'Gwendolyn', cursive;
+            font-size: 5em;
+            text-align: center;
+            color:darkgray;
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 1em;
+        }
+        .nav-buttons a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            /* border: 2px solid white; */
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .nav-buttons a:hover {
+            background-color: white;
+            color: black;
+        }
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.caption {
+    padding: 20px;
+    font-size: 1.2em;
+    margin-left: 120px;
+    text-align: center;
+    width:700px;
+    color: #d3d3d3;
+}
+
+.imgClass {
+    width: 600px;
+    margin-left: 250px;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 16px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.card-slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.card-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.card-slide {
+    min-width: 100%;
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+.card {
+    width: 25%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.card-imgClass {
+    width: 90%;
+    height: 60%;
+}
+
+.card-price {
+    font-size: 1.5em;
+    color: #777;
+    margin: 10px 0;
+}
+
+.card-description {
+    padding: 0 10px 20px 10px;
+    font-size: 1em;
+    color: #d3d3d3;
+}
+
+.card-prev, .card-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 16px;
+    cursor: pointer;
+}
+
+.card-prev {
+    left: 10px;
+}
+
+.card-next {
+    right: 10px;
+}
+
+.card-prev:hover, .card-next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.content-section {
+    padding: 20px;
+}
+
+.card-container2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    width: 48%; 
+    margin: 0 auto; 
+}
+
+.card2 {
+    background-color: black;
+    width: 48%; 
+    height: 300px;
+    perspective: 1000px;
+    margin-bottom: 20px;
+    position: relative; 
+}
+
+.card-inner2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card2:hover .card-inner2 {
+    transform: rotateY(180deg);
+}
+
+.card-front2, .card-back2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    border: 1px solid white; 
+    box-sizing: border-box; 
+}
+
+.card-front2 {
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.card-front2 img {
+    width: 90%;
+    height: 60%;
+    border-radius: 10px;
+}
+
+.card-back2 {
+    background-color: black;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* .card-container2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 400px;
+}
+
+.card2 {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 46%;
+} */
+
+.card-img2 {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-description2 {
+    padding: 20px;
+}
+
+.card-description2 h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #d3d3d3;
+}
+
+.card-description2 p {
+    font-size: 1em;
+    color: #777;
+    line-height: 1.6;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    display: none;
+    font-size: 40px;;
+}
+
+.back-to-top:hover {
+    background-color: #555;
+}
+
+
+
+ 
+
+.sparkle {
+    position: absolute;
+    top: 20%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    width:5px;
+    height:auto;
+    animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.secondSparkle {
+    position: absolute;
+    top: 40%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    width:5px;
+    height:auto;
+    animation: sparkle 3s infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.thirdSparkle {
+    position: absolute;
+    top: 35%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    width:5px;
+    height:auto;
+    animation: sparkle 4s infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.sparkle2 {
+    position: absolute;
+    top: 40%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    font-size: 3em; 
+    animation: sparkle 3s infinite;
+}
+
+@keyframes sparkle2 {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+.boat {
+            position: absolute;
+            bottom: 10px;
+            right: 0px; 
+            width: 150px;
+            animation: sail 80s linear infinite;
+            width: 250px; 
+            height: auto;
+        }
+
+        @keyframes sail {
+            0% {
+                right: 0px;
+            }
+            100% {
+                right: 100%;
+            }
+        }
+
+.moon-image {
+    position: absolute;
+    top: 120px;
+    left: 600px;
+    max-width: 100px; 
+    z-index: 1; 
+}
+
+
+
+
+.footer {
+    background: #111;
+    color: #fff;
+    height: auto;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+.footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+    flex-wrap: wrap;
+}
+
+.footer .footer-content .footer-section {
+    flex: 1;
+    padding: 10px;
+    min-width: 250px;
+}
+
+.footer .footer-content .about .logo-text {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.footer .footer-content .about .contact span {
+    display: block;
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.footer .footer-content .about .socials a {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer .footer-content .links ul a {
+    display: block;
+    margin: 10px 0;
+    font-size: 1.1rem;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.footer .footer-content .links ul a:hover {
+    color: #00bcd4;
+    padding-left: 10px;
+}
+
+.footer .footer-content .contact-form .contact-input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    background: #222;
+    border: none;
+    color: #fff;
+}
+
+.footer .footer-content .contact-form .contact-input:focus {
+    background: #555;
+}
+
+.footer .footer-content .contact-form .btn {
+    display: inline-block;
+    background: #222;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.footer .footer-content .contact-form .btn:hover {
+    background: #0097a7;
+}
+
+.footer .footer-bottom {
+    background: black;
+    color: #ddd;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <div class="logo"></div>
+        <div class="yazi">New York</div>
+        <nav class="nav-buttons">
+            <a href="#trip">Trip</a>
+            <a href="#layover">Layover</a>
+            <a href="#tour">Tour</a>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+&nbsp;
+    <div class="container">
+        <div class="">
+            <div class="">
+                <div class="">
+                    <img src="..\newyork\images\r6.png" style="width: 100%;" alt="New York" class="main-image">
+                    <img src="..\newyork\images\moon.png" alt="Moon" class="moon-image">
+                    <div class="sparkle">
+                        <img src="..\newyork\images\white-sparkle.png" style="width:50px;"> 
+                        <!-- <img src="..\newyork\images\sparkles.png"> -->
+                    </div>
+                    <div class="secondSparkle">
+                        <img src="..\newyork\images\white-sparkle.png" style="width:40px;"> 
+                        <!-- <img src="..\newyork\images\sparkles.png"> -->
+                    </div>
+                    <div class="thirdSparkle">
+                        <img src="..\newyork\images\white-sparkle.png" style="width:30px;"> 
+                        <!-- <img src="..\newyork\images\sparkles.png"> -->
+                    </div>
+                    <img src="..\newyork\images\boat3.png" alt="Boat" class="boat">
+                </div>
+                
+            </div>
+            <!-- <div class="navigation">
+                <span class="prev">&#10094;</span>
+                <span class="next">&#10095;</span>
+            </div> -->
+        </div>
+        <br>
+        <br>
+        <div>
+            <div class="yazi2">This city that never sleeps</div>
+        </div>
+        <section id="trip" class="content-section">
+            <div class="slider-container" style="margin-top: 60px; margin-bottom: 60px;">
+                <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                <div class="slider">
+                    <div class="slide">
+                        <img src="..\newyork\images\centralpark.png" alt="Image 1" class="imgClass">
+                        <div class="caption">
+                        <h4>Central Park</h4>
+                            Central Park, New York City's iconic green haven, offers a serene escape from the bustling city streets. Stretching across 843 acres in the heart of Manhattan, this urban oasis is a testament to landscape architecture, featuring lush meadows, tranquil lakes, and shaded woodlands. Whether you're picnicking on the Great Lawn, rowing across the picturesque lake, or exploring the hidden gems like the Shakespeare Garden and Belvedere Castle, Central Park provides an idyllic retreat for both locals and tourists. It's a place where you can unwind, breathe in the fresh air, and reconnect with nature, all while being surrounded by the city's towering skyscrapers.</div>
+                    </div>
+                    <div class="slide">
+                        <img src="..\newyork\images\empire.png" alt="Image 2" class="imgClass">
+                        
+                        <div class="caption">
+                            <h4>Empire States</h4>
+                            Standing tall at 1,454 feet, the Empire State Building is not just a remarkable feat of engineering but also a symbol of New York City's resilience and ambition. Completed in 1931, this Art Deco masterpiece has been a beacon of innovation and a proud fixture of the city’s skyline. Visitors from around the world flock to its observatories on the 86th and 102nd floors, offering unparalleled panoramic views of the sprawling metropolis below. As you gaze out over the city, from the Hudson River to the East River, and beyond to the distant Atlantic, the Empire State Building invites you to feel the pulse of New York, where every street is alive with stories.</div>
+                    </div>
+                    <div class="slide">
+                        <img src="..\newyork\images\times.png" alt="Image 3" class="imgClass">
+                        
+                        <div class="caption">
+                            <h4>Times Square</h4>
+                            No visit to New York City is complete without experiencing the dazzling spectacle of Times Square. Often referred to as "The Crossroads of the World," this vibrant hub is renowned for its neon lights, towering digital billboards, and the constant hum of excitement. Times Square is where Broadway theaters, flagship stores, and a myriad of dining options converge, creating an atmosphere that is both electrifying and unforgettable. As you stand amidst the sea of people, with the iconic red steps of Duffy Square at your back and the ever-changing advertisements lighting up the night, you'll truly understand why Times Square is considered the beating heart of the city's entertainment district.</div>
+                    </div>
+                </div>
+                <button class="next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+        </section>
+    <br>
+    <br>
+        <!-- New Card Slider -->
+        <section id="layover" class="content-section">
+            <h2 style="text-align: center; color:#d3d3d3">Accommodations</h2>
+            <div class="card-slider-container" style="margin-top: 60px; margin-bottom: 60px;">
+                <button class="card-prev" onclick="moveCardSlide(-1)">&#10094;</button>
+                <div class="card-slider">
+                    <div class="card-slide">
+                        <div class="card">
+                            <img src="..\newyork\images\o1.png" alt="Product Image" class="card-imgClass">
+                            <div class="card-price">$100</div>
+                            <div class="card-description">Hyatt Place New York City/Times Square</div>
+                        </div>
+                        <div class="card">
+                            <img src="..\newyork\images\o2.png" alt="Product Image" class="card-imgClass">
+                            <div class="card-price">$150</div>
+                            <div class="card-description">Park Central</div>
+                        </div>
+                        <div class="card">
+                            <img src="..\newyork\images\o3.png" alt="Product Image" class="card-imgClass">
+                            <div class="card-price">$200</div>
+                            <div class="card-description">Hotel Edison Times Square 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-slide">
+                        <div class="card">
+                            <img src="..\newyork\images\o4.png" alt="Product Image" class="card-imgClass">
+                            <div class="card-price">$120</div>
+                            <div class="card-description">Warwick New York</div>
+                        </div>
+                        <div class="card">
+                            <img src="..\newyork\images\o5.png" alt="Product Image" class="card-imgClass">
+                            <div class="card-price">$180</div>
+                            <div class="card-description">The Manhattan at Times Square</div>
+                        </div>
+                        <div class="card">
+                            <img src="..\newyork\images\o6.png" alt="Product Image" class="card-imgClass">
+                            <div class="card-price">$250</div>
+                            <div class="card-description">Pod 39</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="card-next" onclick="moveCardSlide(1)">&#10095;</button>
+            </div>
+        </section>
+       
+        <section id="tour" class="content-section">
+            <h2 style="text-align: center; color:#d3d3d3">Tours</h2>
+            <br>
+            <br>
+            <div class="card-container2">
+                <div class="card2">
+                    <div class="card-inner2">
+                        <div class="card-front2">
+                            <img src="..\newyork\images\tour1.png" alt="Tour 1">
+                            <h2>New York City: Manhattan Helicopter Tour</h2>
+                        </div>
+                        <div class="card-back2">
+                            <h2>New York City: Manhattan Helicopter Tour</h2>
+                            <p>Enjoy a bird's eye view of NYC on a narrated helicopter tour as ...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card2">
+                    <div class="card-inner2">
+                        <div class="card-front2">
+                            <img src="..\newyork\images\tour2.png" alt="Tour 2">
+                            <h2>New York: Ticket to Top 5 Attractions with CityPASS</h2>
+                        </div>
+                        <div class="card-back2">
+                            <h2>New York: Ticket to Top 5 Attractions with CityPASS</h2>
+                            <p>Get a New York CityPASS® and experience 5 carefully curated ...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card2">
+                    <div class="card-inner2">
+                        <div class="card-front2">
+                            <img src="..\newyork\images\tour3.png" alt="Tour 3">
+                            <h2>NYC: SUMMIT A Vanderbilt Experience Ticket</h2>
+                        </div>
+                        <div class="card-back2">
+                            <h2>NYC: SUMMIT A Vanderbilt Experience Ticket</h2>
+                            <p>Take in the views of New York City with a ticket to SUMMIT One Vanderbilt...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card2">
+                    <div class="card-inner2">
+                        <div class="card-front2">
+                            <img src="..\newyork\images\tour4.png" alt="Tour 4">
+                            <h2>New York: Hop-on Hop-off Sightseeing Tour by Open-Top Bus</h2>
+                        </div>
+                        <div class="card-back2">
+                            <h2>New York: Hop-on Hop-off Sightseeing Tour by Open-Top Bus</h2>
+                            <p>Explore New York City's museums and landmarks from an open-top bus ...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <button class="back-to-top" onclick="backToTop()"> &#8679;</button>
+        <script src="script.js"></script>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2 class="logo-text" style=" font-family: 'Gwendolyn', cursive;
+                font-size: 2.5em;">New York</h2>
+               
+                <div class="contact">
+                    <span><i class="fas fa-phone"></i> &nbsp; 534 827 7962</span>
+                    <span><i class="fas fa-envelope"></i> &nbsp; github.com/senmelda</span>
+                </div>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <br>
+                <ul>
+                    <a href="#"><li>Trip</li></a>
+                    <a href="#"><li>Layover</li></a>
+                    <a href="#"><li>Tour</li></a>
+                </ul>
+            </div>
+            <div class="footer-section contact-form">
+                <h2>Contact Us</h2>
+                <br>
+                <form action="#" method="post">
+                    <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
+                    <textarea name="message" class="text-input contact-input" placeholder="Your message..."></textarea>
+                    <button type="submit" class="btn btn-big contact-btn">
+                        <i class="fas fa-envelope"></i>
+                        Send
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; newyorkdream.com | Designed by Melda
+        </div>
+    </footer>
+    
+    
+    
+</body>
+</html>
